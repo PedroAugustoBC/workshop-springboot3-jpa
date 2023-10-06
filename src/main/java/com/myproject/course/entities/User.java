@@ -1,10 +1,15 @@
 package com.myproject.course.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
-
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;
@@ -12,7 +17,6 @@ public class User implements Serializable {
     private String password;
 
     public User() {
-
     }
 
     public User(long id, String name, String email, String phone, String password) {
